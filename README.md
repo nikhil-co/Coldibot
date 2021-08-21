@@ -1,0 +1,2 @@
+# Coldibot
+BOT by COLDI
