@@ -1,3 +1,3 @@
 import discord
 
-client = discord.client 
+client = discord.client()
