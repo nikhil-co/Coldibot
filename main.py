@@ -10,7 +10,9 @@ from art import chat_with_ai
 intents = discord.Intents.default()
 intents.members = True
 
-client = commands.Bot(command_prefix='*cb ',intents=intents)
+bot_prefix = '*cb ' # Bot Prefix
+
+client = commands.Bot(command_prefix=bot_prefix,intents=intents)
 
 @client.event
 async def on_ready():
@@ -80,17 +82,11 @@ async def hi(ctx):
 async def what(ctx):
   await ctx.channel.send(file=discord.File('gifs/giphy_what.gif'))
 
-@client.event
-async def on_message(message):
-  command = message.content
-  if command.startswith('*cb'):
-    command = message.content.split('*cb ')
-    if command[1].startswith('ai'):
-      question = command[1].split('ai ')[1]
-      await message.channel.send(chat_with_ai(question,message.author))
-      return
-    await client.process_commands(message)
-
+@client.command()
+async def ai(ctx):
+  question = ctx.message.content.split(bot_prefix)[1]
+  answer = chat_with_ai(question,ctx.author)
+  await ctx.send(answer)
 
 keep_alive() #Fucntion to keep the bot running all the time
 
