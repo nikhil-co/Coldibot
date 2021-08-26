@@ -60,6 +60,11 @@ async def resume(ctx):
     await ctx.send('Audio is already playing')
 
 @client.command(pass_context=True)
+async def stop(ctx):
+  voice = discord.utils.get(client.voice_clients,guild=ctx.guild)
+  voice.stop()
+
+@client.command(pass_context=True)
 async def leave(ctx):
   if (ctx.voice_client):
     await ctx.guild.voice_client.disconnect()
