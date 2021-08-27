@@ -47,7 +47,7 @@ async def play(ctx):
 async def pause(ctx):
   voice = discord.utils.get(client.voice_clients,guild=ctx.guild)
   if voice == None:
-    await ctx.send('ColdiBOT is in any voice channel. Use join to make the bot join the channel')
+    await ctx.send('ColdiBOT is in any voice channel. Use join to make the bot join the voice channel.')
   else:
     if voice.is_playing():
       voice.pause()
