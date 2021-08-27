@@ -28,7 +28,7 @@ async def join(ctx):
     channel = ctx.message.author.voice.channel
     await channel.connect()
     f = str(channel)
-    await ctx.send('ColdiBOT has joined the Voice Channel '+f)
+    await ctx.send('ColdiBOT has joined the Voice Channel '+ f)
   else:
     await ctx.send('You have to join a voice channel first to use this command')
 
