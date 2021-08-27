@@ -46,11 +46,14 @@ async def play(ctx):
 @client.command(pass_context=True)
 async def pause(ctx):
   voice = discord.utils.get(client.voice_clients,guild=ctx.guild)
-  if voice.is_playing():
-    voice.pause()
-    await ctx.send('Audio Paused')
+  if voice == None:
+    await ctx.send('ColdiBOT is in any voice channel. Use join to make the bot join the channel')
   else:
-    await ctx.send('ColdiBOT is not playing anything')
+    if voice.is_playing():
+      voice.pause()
+      await ctx.send('Audio Paused')
+    else:
+      await ctx.send('ColdiBOT is not playing anything')
 
 @client.command(pass_context=True)
 async def resume(ctx):
