@@ -87,7 +87,7 @@ async def what(ctx):
 
 @client.command()
 async def ai(ctx):
-  question = ctx.message.content.split(bot_prefix)[1]
+  question = ctx.message.content.split(bot_prefix + 'ai')[1]
   answer = chat_with_ai(question,ctx.author)
   await ctx.send(answer)
 
