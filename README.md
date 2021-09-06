@@ -1,2 +1,2 @@
 # Coldibot
-BOT by COLDI
+Discord BOT for my server
